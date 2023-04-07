@@ -1,12 +1,12 @@
 import { useAccount } from '@micro-stacks/react';
 import { useState, useEffect } from 'react';
-import { counterGetCounterAtom } from '../store/count';
+import { getCounterAtom } from '../store/count';
 import { useAtom } from 'jotai';
 
 export const UserCard = () => {
   const { stxAddress } = useAccount();
   const [hydrated, setHydrated] = useState(false);
-  const count = useAtom(counterGetCounterAtom);
+  const count = useAtom(getCounterAtom);
   
 	useEffect(() => {
 		setHydrated(true);

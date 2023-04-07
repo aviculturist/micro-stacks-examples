@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import { ClientProvider } from '@micro-stacks/react';
+import { JotaiClientProvider } from '@micro-stacks/jotai';
 import { Provider, useAtom } from 'jotai';
 import { StacksMainnet, StacksTestnet, StacksMocknet } from 'micro-stacks/network';
 
@@ -12,13 +13,16 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider>
+    <JotaiClientProvider>
     <ClientProvider
       appName="Nextjs + Microstacks"
       appIconUrl="/vercel.png"
       network={initialNetwork}
-    >
-      <Component {...pageProps} />
+    >      
+      <Component {...pageProps} />    
+
     </ClientProvider>
+    </JotaiClientProvider>
     </Provider>
   );
 }
